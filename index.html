@@ -7,6 +7,11 @@
 <title>Dentista na Tijuca — Periodontia e Implantes | Dra. Angelica Vaitsman</title>
 <meta name="description" content="Periodontia, implantes e prótese na Tijuca, Rio de Janeiro. Rua Conde de Bonfim, 422 · Sala 501. Atendimento com hora marcada. CRO-RJ 48701.">
 
+<!-- REMOVER QUANDO O CONTRATO FECHAR — enquanto é prévia, a página não deve ser
+     indexada: textos provisórios em cache do Google, com o nome e o CRO dela,
+     atrapalham mais do que ajudam. -->
+<meta name="robots" content="noindex, nofollow">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Dra. Angelica Vaitsman — Periodontia e Implantes na Tijuca">
@@ -79,6 +84,19 @@ a{color:inherit}
 
 .skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:#fff;padding:12px 20px;z-index:200}
 .skip:focus{left:8px;top:8px}
+
+/* ---------- aviso de prévia ----------
+   REMOVER QUANDO O CONTRATO FECHAR: esta regra, a div .previa no topo do body,
+   a linha .rodape__previa e a meta robots noindex no <head>. */
+.previa{
+  background:var(--ink);color:#D6E3E1;
+  padding:11px 0;font-size:.84rem;line-height:1.45;text-align:center;
+}
+.previa strong{color:var(--teal-claro);font-weight:600;letter-spacing:.1em}
+.rodape__previa{
+  flex-basis:100%;margin-top:14px;font-size:.78rem;
+  color:rgba(255,255,255,.45);max-width:62ch;margin-inline:auto;
+}
 
 /* ---------------- escala tipográfica ---------------- */
 
@@ -335,6 +353,12 @@ a{color:inherit}
 <body>
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- ============ PRÉVIA — remover quando fechar o contrato ============ -->
+<div class="previa">
+  <div class="wrap"><strong>PRÉVIA</strong> &nbsp;·&nbsp; Rascunho criado pela Rochaa
+  Corporation para a Dra. Angelica Vaitsman. Fotos e textos são provisórios.</div>
+</div>
 
 <!-- ============ TOPO ============ -->
 <header class="topo">
@@ -634,6 +658,9 @@ a{color:inherit}
     <div class="rodape__fim">
       <span>Responsável técnica: Angelica Vaitsman — CRO-RJ 48701</span>
       <span>Site desenvolvido por Rochaa Corporation © 2026</span>
+      <p class="rodape__previa">Prévia sem valor contratual, produzida pela Rochaa
+      Corporation. Conteúdo sujeito a revisão e às normas do Código de Ética
+      Odontológica.</p>
     </div>
   </div>
 </footer>
