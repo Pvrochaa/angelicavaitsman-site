@@ -66,7 +66,10 @@ Rodar **antes** de tirar a prévia do ar e entregar como site definitivo.
   gargalo, mas WebP economiza ~40%. Precisa de ferramenta que não existe nesta
   máquina (sem Node, sem ImageMagick). Caminho manual: squoosh.app
 - [ ] Rodar PageSpeed Insights depois do domínio definitivo
-- [ ] Adicionar `og:image` (1200×630) e `og:url` — hoje estão como TODO no `<head>`
+- [x] `og:url`, `og:image`, `canonical`, `twitter:card` e `theme-color` adicionados
+- [ ] **Trocar as 3 URLs absolutas** (`og:url`, `og:image`, `canonical`) pelo domínio final
+- [ ] Produzir arte `og:image` 1200×630 — hoje usa o retrato 400×400, que vira
+  miniatura quadrada no WhatsApp em vez de card horizontal
 
 ## 7. Depois de publicar
 
