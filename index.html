@@ -351,6 +351,22 @@ a{color:inherit}
 
 .acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 
+.mapa{
+  margin-top:clamp(32px,4vw,44px);
+  border-radius:var(--raio);
+  overflow:hidden;
+  border:1px solid var(--linha);
+  background:var(--mint);
+  line-height:0;
+}
+.mapa iframe{
+  width:100%;
+  height:340px;
+  border:0;
+  display:block;
+}
+@media (max-width:640px){.mapa iframe{height:260px}}
+
 /* ---------------- rodapé ---------------- */
 
 .rodape{background:var(--teal);color:var(--branco);padding:clamp(48px,6vw,72px) 0 36px}
@@ -638,35 +654,47 @@ a{color:inherit}
       </div>
     </div>
 
+    <!-- Depoimento de paciente NAO entra aqui como peca de captacao: o Codigo de
+         Etica Odontologica restringe esse uso, e quem responde perante o CRO e ela.
+         A prova social fica na nota agregada e no link para o perfil real, onde as
+         avaliacoes estao no dominio do Google e nao na publicidade dela. -->
     <div class="grade">
+      <article class="cartao">
+        <div class="ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C4F49" stroke-width="2.6" stroke-linejoin="miter">
+            <path d="M12 4 L14.5 9.5 L20 10 L15.8 13.8 L17 19.5 L12 16.6 L7 19.5 L8.2 13.8 L4 10 L9.5 9.5 Z"/>
+          </svg>
+        </div>
+        <h4>Nota máxima, com volume</h4>
+        <p>5,0 de média em 107 avaliações. Nota alta com poucas avaliações diz pouco;
+        manter 5,0 depois de uma centena diz bastante.</p>
+      </article>
 
-      <figure class="avaliacao">
-        <p class="avaliacao__estrelas" aria-label="5 de 5 estrelas">★★★★★</p>
-        <blockquote>Fiz clareamento e limpeza dentária com ela e fiquei muito satisfeito
-        com o resultado! Atendimento atencioso e cuidadoso, com tudo bem explicado em
-        cada etapa e sem pressa. O consultório é organizado e passa muita confiança…</blockquote>
-        <figcaption>Jeronimo Mariano <span>Avaliação no Google</span></figcaption>
-      </figure>
+      <article class="cartao">
+        <div class="ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C4F49" stroke-width="2.6" stroke-linejoin="miter">
+            <path d="M5 12 L10 17 L19 7"/>
+          </svg>
+        </div>
+        <h4>Sem curadoria nossa</h4>
+        <p>As avaliações ficam no Google, não aqui. Nada foi selecionado, editado ou
+        reescrito para esta página.</p>
+      </article>
 
-      <figure class="avaliacao">
-        <p class="avaliacao__estrelas" aria-label="5 de 5 estrelas">★★★★★</p>
-        <blockquote>Estivemos nesta data, no Consultório da Dra. Angélica, e saímos muito
-        satisfeito com o trabalho da doutora, com atendimento dela e da secretaria Dra.
-        Kátia, elas são muito agradáveis e profissionais. Eu super indico.</blockquote>
-        <figcaption>Wandarosa Soares <span>Avaliação no Google</span></figcaption>
-      </figure>
-
-      <figure class="avaliacao">
-        <p class="avaliacao__estrelas" aria-label="5 de 5 estrelas">★★★★★</p>
-        <blockquote>Profissional de excelência! Dra. Angélica e os demais. Podem ir, não
-        irão se arrepender. Parabéns pelo belo atendimento.</blockquote>
-        <figcaption>Marcio Lopes <span>Avaliação no Google</span></figcaption>
-      </figure>
-
+      <article class="cartao">
+        <div class="ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C4F49" stroke-width="2.6" stroke-linejoin="miter">
+            <path d="M12 3 L12 21"/><path d="M5 8 L19 8"/><path d="M7 21 L17 21"/>
+          </svg>
+        </div>
+        <h4>Verificável</h4>
+        <p>Quem escreveu tem perfil no Google. Dá para conferir cada avaliação, com
+        data e autor, na ficha do consultório.</p>
+      </article>
     </div>
 
     <div class="acoes">
-      <a class="btn btn-secundario" href="https://share.google/8qaDZ6tHRS9MyKScy" target="_blank" rel="noopener">Ler todas no Google</a>
+      <a class="btn btn-primario" href="https://share.google/8qaDZ6tHRS9MyKScy" target="_blank" rel="noopener">Ler as 107 avaliações no Google</a>
     </div>
   </div>
 </section>
@@ -709,11 +737,20 @@ a{color:inherit}
         </div>
 
         <div class="cartao cartao--mint" style="margin-top:24px">
-          <h4>Atendimento com hora marcada</h4>
-          <p>O agendamento é feito pelo WhatsApp. Confirme o horário antes de vir.</p>
+          <h4>Sala 501, quinto andar</h4>
+          <p>O prédio fica na Conde de Bonfim. Suba até o quinto andar — o atendimento
+          é com hora marcada, então confirme o horário pelo WhatsApp antes de vir.</p>
         </div>
       </div>
 
+    </div>
+
+    <div class="mapa">
+      <iframe
+        src="https://www.google.com/maps?q=Rua%20Conde%20de%20Bonfim%2C%20422%2C%20Tijuca%2C%20Rio%20de%20Janeiro%2C%20RJ&output=embed"
+        title="Mapa: Rua Conde de Bonfim, 422 — Tijuca, Rio de Janeiro"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -774,7 +811,26 @@ a{color:inherit}
     "addressCountry":"BR"
   },
   "medicalSpecialty":["Periodontic","Prosthodontic"],
-  "sameAs":["https://instagram.com/dra.angelicavaitsman"],
+  "image":"https://angelicavaitsman-site.vercel.app/img/angelica-profissional.jpg",
+  "hasMap":"https://share.google/8qaDZ6tHRS9MyKScy",
+  "areaServed":[
+    {"@type":"Place","name":"Tijuca, Rio de Janeiro"},
+    {"@type":"Place","name":"Vila Isabel, Rio de Janeiro"},
+    {"@type":"Place","name":"Maracanã, Rio de Janeiro"},
+    {"@type":"Place","name":"Grajaú, Rio de Janeiro"}
+  ],
+  "availableService":[
+    {"@type":"MedicalProcedure","name":"Tratamento periodontal"},
+    {"@type":"MedicalProcedure","name":"Implante dentário"},
+    {"@type":"MedicalProcedure","name":"Prótese dentária"},
+    {"@type":"MedicalProcedure","name":"Cirurgia plástica periodontal"},
+    {"@type":"MedicalProcedure","name":"Enxerto gengival"},
+    {"@type":"MedicalProcedure","name":"Recobrimento de raiz exposta"}
+  ],
+  "sameAs":[
+    "https://instagram.com/dra.angelicavaitsman",
+    "https://share.google/8qaDZ6tHRS9MyKScy"
+  ],
   "employee":{
     "@type":"Person",
     "name":"Angelica Vaitsman",
@@ -801,15 +857,56 @@ a{color:inherit}
 }
 </script>
 
+<!-- ============================================================
+     GA4 — COLE O SNIPPET AQUI QUANDO TIVER O ID (G-XXXXXXXXXX).
+     Enquanto nao houver, o rastreio de cliques abaixo roda em silencio:
+     ele so envia se gtag existir.
+
+     ATENCAO LGPD: consultorio e dado de saude. Antes de ligar o GA4,
+     a pagina precisa de aviso de privacidade e base legal para o
+     tratamento. Nao ligue sem isso.
+     ============================================================ -->
+
 <script>
 (function(){
+  // barra fixa do celular
   var barra = document.getElementById('barra');
   var hero  = document.querySelector('.hero');
-  if(!barra || !hero || !('IntersectionObserver' in window)) return;
+  if(barra && hero && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      barra.classList.toggle('visivel', !e[0].isIntersecting);
+    },{rootMargin:'-40px 0px 0px 0px'}).observe(hero);
+  }
 
-  new IntersectionObserver(function(e){
-    barra.classList.toggle('visivel', !e[0].isIntersecting);
-  },{rootMargin:'-40px 0px 0px 0px'}).observe(hero);
+  // ---- conversao: clique em WhatsApp e telefone ----
+  // Agnostico de ferramenta: alimenta o dataLayer sempre, e dispara no
+  // gtag apenas se ele estiver carregado. Sem GA4, nao faz nada.
+  window.dataLayer = window.dataLayer || [];
+
+  function registrar(acao, origem){
+    window.dataLayer.push({event:acao, origem:origem});
+    if (typeof window.gtag === 'function'){
+      window.gtag('event', acao, {origem:origem, transport_type:'beacon'});
+    }
+  }
+
+  // Identifica de qual bloco da pagina o clique saiu, para saber o que converte
+  function origemDe(el){
+    var sec = el.closest('section, header, .barra, footer');
+    if (!sec) return 'desconhecida';
+    if (sec.classList.contains('barra'))  return 'barra-celular';
+    if (sec.tagName === 'HEADER')         return 'topo';
+    if (sec.tagName === 'FOOTER')         return 'rodape';
+    return sec.id || (sec.querySelector('.hero') ? 'hero' : 'secao');
+  }
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('wa.me') > -1)      registrar('clique_whatsapp', origemDe(a));
+    else if (href.indexOf('tel:') === 0) registrar('clique_telefone', origemDe(a));
+  }, {passive:true});
 })();
 </script>
 
