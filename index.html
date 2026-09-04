@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Dentista na Tijuca — Periodontia e Implantes | Dra. Angelica Vaitsman</title>
-<meta name="description" content="Periodontia, implantes e prótese na Tijuca, Rio de Janeiro. Rua Conde de Bonfim, 422 · Sala 501. Atendimento com hora marcada. CRO-RJ 48701.">
+<meta name="description" content="Dra. Angelica Vaitsman — periodontia, implantes e prótese na Tijuca, Rio de Janeiro. Mestre pela UFF e instrutora de cirurgia plástica periodontal no INERO. CRO-RJ 48701.">
 
 <!-- REMOVER QUANDO O CONTRATO FECHAR — enquanto é prévia, a página não deve ser
      indexada: textos provisórios em cache do Google, com o nome e o CRO dela,
@@ -267,6 +267,55 @@ a{color:inherit}
 }
 .legenda{margin-top:12px;font-size:.8125rem;color:var(--texto-2)}
 
+/* ---------------- quem atende ---------------- */
+
+.perfil{
+  display:grid;grid-template-columns:1fr;gap:clamp(20px,3vw,36px);
+  align-items:start;
+}
+@media (min-width:720px){
+  .perfil{grid-template-columns:180px 1fr;gap:clamp(28px,4vw,48px)}
+}
+.perfil__foto{
+  width:150px;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:var(--mint);flex:none;
+}
+@media (min-width:720px){.perfil__foto{width:180px}}
+.perfil__foto img{width:100%;height:100%;object-fit:cover}
+
+.formacao{
+  margin-top:clamp(40px,6vw,64px);
+  padding-top:clamp(32px,4vw,44px);
+  border-top:1px solid var(--linha);
+}
+.trilha{list-style:none;padding:0;margin:26px 0 0;counter-reset:none}
+.trilha li{
+  display:grid;grid-template-columns:1fr;gap:6px;
+  padding:20px 0;border-top:1px solid var(--linha);
+}
+.trilha li:last-child{border-bottom:1px solid var(--linha)}
+@media (min-width:720px){
+  .trilha li{grid-template-columns:150px 1fr;gap:0 32px;align-items:baseline}
+}
+.trilha__ano{
+  font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal-vivo);white-space:nowrap;
+}
+.trilha h3{font-size:1.0625rem;line-height:1.35;margin-bottom:5px}
+.trilha p{font-size:.9375rem;color:var(--texto-2);line-height:1.55;max-width:56ch}
+
+.formacao__rodape{
+  margin-top:24px;font-size:.875rem;color:var(--texto-2);
+}
+.formacao__rodape a{color:var(--teal-vivo);font-weight:600;text-decoration:none}
+.formacao__rodape a:hover{text-decoration:underline}
+
+.topo__cro{
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;
+  color:var(--texto-2);white-space:nowrap;
+}
+@media (max-width:560px){.topo__cro{display:none}}
+
 /* ---------------- avaliações ---------------- */
 
 .avaliacao{
@@ -376,10 +425,10 @@ a{color:inherit}
       </p>
     </a>
 
+    <!-- Landing page: sem menu. Cada link de navegacao e uma saida que nao
+         leva ao WhatsApp. A pagina tem uma acao so. -->
     <nav class="nav" aria-label="Principal">
-      <a href="#especialidades">Especialidades</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#onde-fica">Onde fica</a>
+      <span class="topo__cro">CRO-RJ 48701</span>
       <a class="btn btn-primario btn-pequeno" href="https://wa.me/5521992254443?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar</a>
     </nav>
   </div>
@@ -396,11 +445,12 @@ a{color:inherit}
         <p class="rotulo">Periodontia e implantodontia · Tijuca, Rio de Janeiro</p>
         <h1 class="display">O dente só fica em pé se a base estiver de pé</h1>
         <p class="hero__sub">Periodontia, implantes e prótese na Tijuca, com diagnóstico
-        completo antes de qualquer proposta de tratamento.</p>
+        completo antes de qualquer proposta de tratamento. Mestre pela UFF e instrutora
+        de cirurgia plástica periodontal no INERO.</p>
 
         <div class="hero__acoes">
           <a class="btn btn-primario" href="https://wa.me/5521992254443?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
-          <a class="btn btn-secundario" href="#especialidades">Ver especialidades</a>
+          <a class="btn btn-secundario" href="#onde-fica">Onde fica</a>
         </div>
 
         <div class="selo">
@@ -416,8 +466,73 @@ a{color:inherit}
   </div>
 </section>
 
+<!-- ============ QUEM ATENDE ============ -->
+<section class="faixa faixa--gelo" id="sobre">
+  <div class="wrap">
+
+    <div class="perfil">
+      <div class="perfil__foto">
+        <img src="img/angelica-profissional.jpg" alt="Dra. Angelica Vaitsman" loading="lazy" width="400" height="400">
+      </div>
+      <div>
+        <p class="rotulo" style="margin-bottom:14px">Quem atende</p>
+        <h2 class="h2">A mesma pessoa que ensina a técnica é quem opera você</h2>
+        <p class="medida" style="margin-top:16px">Angelica Vaitsman é cirurgiã-dentista,
+        mestre pela Universidade Federal Fluminense e instrutora de cirurgia plástica
+        periodontal no INERO, onde forma outros dentistas nas técnicas de recobrimento
+        de raiz, enxerto de tecido mole e manejo do tecido ao redor de implantes.</p>
+        <p class="medida" style="margin-top:16px">Na cadeira, isso aparece de um jeito
+        simples: o caso é avaliado antes de qualquer proposta, e cada etapa é explicada
+        enquanto acontece.</p>
+      </div>
+    </div>
+
+    <div class="formacao">
+      <p class="rotulo">Formação e atuação</p>
+
+      <ol class="trilha">
+        <li>
+          <span class="trilha__ano">Desde 2022</span>
+          <div>
+            <h3>Instrutora de Cirurgia Plástica Periodontal</h3>
+            <p>INERO — Institute of Dental Rehabilitation Education, Rio de Janeiro.
+            Ensina planejamento cirúrgico, cirurgia ao vivo e discussão de casos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="trilha__ano">2022 — 2024</span>
+          <div>
+            <h3>Mestrado em Cirurgia Bucomaxilofacial e Periodontia</h3>
+            <p>Universidade Federal Fluminense (UFF). Pesquisa sobre protocolos de
+            higienização e suas consequências em resinas para base de prótese.</p>
+          </div>
+        </li>
+        <li>
+          <span class="trilha__ano">2020 — 2022</span>
+          <div>
+            <h3>Especialização em Implantodontia</h3>
+            <p>Faculdade São Leopoldo Mandic. Ensaio clínico sobre reabilitação com
+            implantes na região posterior: carga imediata comparada à tardia.</p>
+          </div>
+        </li>
+        <li>
+          <span class="trilha__ano">2014 — 2019</span>
+          <div>
+            <h3>Graduação em Odontologia</h3>
+            <p>Universidade Federal do Rio de Janeiro (UFRJ).</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="formacao__rodape">CRO-RJ 48701 · Periodontia · Implantodontia · Prótese ·
+      <a href="https://instagram.com/dra.angelicavaitsman" target="_blank" rel="noopener">@dra.angelicavaitsman</a></p>
+    </div>
+
+  </div>
+</section>
+
 <!-- ============ ESPECIALIDADES ============ -->
-<section class="faixa faixa--gelo" id="especialidades">
+<section class="faixa" id="especialidades">
   <div class="wrap">
     <div class="cabeca">
       <p class="rotulo">Especialidades</p>
@@ -477,7 +592,7 @@ a{color:inherit}
 </section>
 
 <!-- ============ CIRURGIA ============ -->
-<section class="faixa" id="cirurgia">
+<section class="faixa faixa--gelo" id="cirurgia">
   <div class="wrap duas">
 
     <div>
@@ -488,7 +603,8 @@ a{color:inherit}
       sustentar um implante ou quando o contorno gengival precisa ser corrigido, o
       caminho é cirúrgico.</p>
       <p class="medida" style="margin-top:16px">É uma cirurgia de precisão, feita em
-      tecido milimétrico — e é a área em que a Dra. Angelica se especializou.</p>
+      tecido milimétrico. É também a área que a Dra. Angelica ensina a outros dentistas
+      no INERO desde 2022.</p>
 
       <p class="rotulo" style="margin-top:34px">Procedimentos</p>
       <ul class="lista" style="margin-top:16px">
@@ -504,34 +620,6 @@ a{color:inherit}
         <img src="img/angelica-atendimento.jpg" alt="Dra. Angelica Vaitsman durante um procedimento no consultório" loading="lazy">
       </div>
       <p class="legenda">Procedimento no consultório · Tijuca</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ SOBRE ============ -->
-<section class="faixa faixa--gelo" id="sobre">
-  <div class="wrap duas">
-
-    <div>
-      <p class="rotulo" style="margin-bottom:18px">Sobre</p>
-      <h2 class="h2">Quem vai te atender</h2>
-    </div>
-
-    <div>
-      <p style="font-size:1.25rem;line-height:1.45">Angelica Vaitsman é cirurgiã-dentista
-      com atuação em periodontia, implantodontia e prótese, e atende em consultório
-      próprio na Tijuca.</p>
-
-      <p class="medida" style="margin-top:18px">O trabalho começa pela avaliação: entender
-      o quadro, explicar o que está acontecendo e apresentar o plano de tratamento antes
-      de qualquer procedimento. Cada etapa é explicada enquanto acontece.</p>
-
-      <ul class="lista" style="margin-top:26px">
-        <li><b style="color:var(--ink)">CRO-RJ 48701</b> — registro profissional</li>
-        <li><b style="color:var(--ink)">Periodontia · Implantodontia · Prótese</b> — áreas de atuação</li>
-        <li><a href="https://instagram.com/dra.angelicavaitsman" target="_blank" rel="noopener" style="color:var(--teal-vivo);font-weight:600">@dra.angelicavaitsman</a> — no Instagram</li>
-      </ul>
     </div>
 
   </div>
@@ -687,6 +775,23 @@ a{color:inherit}
   },
   "medicalSpecialty":["Periodontic","Prosthodontic"],
   "sameAs":["https://instagram.com/dra.angelicavaitsman"],
+  "employee":{
+    "@type":"Person",
+    "name":"Angelica Vaitsman",
+    "honorificPrefix":"Dra.",
+    "jobTitle":"Cirurgiã-dentista — periodontia, implantodontia e prótese",
+    "identifier":"CRO-RJ 48701",
+    "alumniOf":[
+      {"@type":"CollegeOrUniversity","name":"Universidade Federal Fluminense"},
+      {"@type":"CollegeOrUniversity","name":"Faculdade São Leopoldo Mandic"},
+      {"@type":"CollegeOrUniversity","name":"Universidade Federal do Rio de Janeiro"}
+    ],
+    "hasCredential":[
+      {"@type":"EducationalOccupationalCredential","credentialCategory":"Mestrado","name":"Mestrado em Cirurgia Bucomaxilofacial e Periodontia — UFF"},
+      {"@type":"EducationalOccupationalCredential","credentialCategory":"Especialização","name":"Especialização em Implantodontia — São Leopoldo Mandic"}
+    ],
+    "knowsAbout":["Periodontia","Implantodontia","Prótese dentária","Cirurgia plástica periodontal"]
+  },
   "openingHoursSpecification":[{
     "@type":"OpeningHoursSpecification",
     "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
