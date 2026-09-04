@@ -239,7 +239,9 @@ a{color:inherit}
   .hero .selo{grid-area:selo}
   .hero__foto{grid-area:foto;align-self:center;margin-bottom:0}
 }
-.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}
+/* origem quadrada em moldura 4/5: o corte e so nas laterais, e o rosto esta
+   centralizado — por isso "center" e nao um deslocamento vertical */
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:center}
 
 .selo{
   display:flex;align-items:center;gap:14px;
@@ -507,8 +509,8 @@ a{color:inherit}
 
       <div class="hero__foto">
         <picture>
-          <source srcset="img/angelica-retrato.webp" type="image/webp">
-          <img src="img/angelica-retrato.jpg" alt="Dra. Angelica Vaitsman no consultório" loading="eager" width="828" height="936">
+          <source srcset="img/angelica-hero.webp" type="image/webp">
+          <img src="img/angelica-hero.jpg" alt="Dra. Angelica Vaitsman no consultório" loading="eager" width="640" height="640">
         </picture>
       </div>
 
