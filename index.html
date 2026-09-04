@@ -342,21 +342,70 @@ a{color:inherit}
 
 .acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 
+/* ---------------- perguntas ---------------- */
+
+.faq{border-top:1px solid var(--linha);max-width:74ch}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{
+  list-style:none;cursor:pointer;
+  padding:20px 40px 20px 0;position:relative;
+  font-weight:600;font-size:1.0625rem;line-height:1.4;
+  color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:50%;
+  width:11px;height:11px;margin-top:-7px;
+  border-right:2px solid var(--teal-vivo);
+  border-bottom:2px solid var(--teal-vivo);
+  transform:rotate(45deg);
+  transition:transform .18s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-3px}
+.faq summary:hover{color:var(--teal)}
+.faq__corpo{padding:0 40px 22px 0}
+.faq__corpo p{color:var(--texto-2);max-width:60ch}
+
+@media (prefers-reduced-motion:reduce){
+  .faq summary::after{transition:none}
+}
+
 .mapa{
   margin-top:clamp(32px,4vw,44px);
   border-radius:var(--raio);
   overflow:hidden;
   border:1px solid var(--linha);
-  background:var(--mint);
-  line-height:0;
+  background:var(--branco);
 }
-.mapa iframe{
-  width:100%;
-  height:340px;
-  border:0;
-  display:block;
-}
+.mapa iframe{width:100%;height:340px;border:0;display:block}
 @media (max-width:640px){.mapa iframe{height:260px}}
+
+.mapa__abrir{
+  width:100%;
+  min-height:200px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;
+  padding:36px 24px;
+  background:var(--mint);
+  border:0;
+  cursor:pointer;
+  font-family:var(--fonte);
+  transition:background-color .16s ease;
+}
+.mapa__abrir:hover{background:#CFE6E1}
+.mapa__titulo{
+  font-weight:600;font-size:1.0625rem;color:var(--teal);
+  font-variation-settings:"wdth" 112;
+}
+.mapa__end{font-size:.9375rem;color:var(--texto-2);text-align:center}
+.mapa__aviso{
+  padding:12px 20px;
+  font-size:.8125rem;
+  color:var(--texto-2);
+  text-align:center;
+  border-top:1px solid var(--linha);
+}
+.mapa.carregado .mapa__aviso{display:none}
 
 /* ---------------- rodapé ---------------- */
 
@@ -736,12 +785,100 @@ a{color:inherit}
 
     </div>
 
-    <div class="mapa">
-      <iframe
-        src="https://www.google.com/maps?q=Rua%20Conde%20de%20Bonfim%2C%20422%2C%20Tijuca%2C%20Rio%20de%20Janeiro%2C%20RJ&output=embed"
-        title="Mapa: Rua Conde de Bonfim, 422 — Tijuca, Rio de Janeiro"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Click-to-load: o iframe do Google so e injetado no clique. Antes disso a
+         pagina nao carrega nada de terceiro, entao nao ha cookie a consentir e
+         nao precisa de banner. Padrao para qualquer embed futuro. -->
+    <div class="mapa" id="mapa"
+         data-src="https://www.google.com/maps?q=Rua%20Conde%20de%20Bonfim%2C%20422%2C%20Tijuca%2C%20Rio%20de%20Janeiro%2C%20RJ&output=embed">
+      <button type="button" class="mapa__abrir" aria-describedby="mapa-aviso">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0C4F49" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M12 21 C12 21 5 14.5 5 10 A7 7 0 0 1 19 10 C19 14.5 12 21 12 21 Z"/>
+          <circle cx="12" cy="10" r="2.4"/>
+        </svg>
+        <span class="mapa__titulo">Ver o mapa</span>
+        <span class="mapa__end">Rua Conde de Bonfim, 422 — Sala 501, Tijuca</span>
+      </button>
+      <p class="mapa__aviso" id="mapa-aviso">O mapa vem do Google e só é carregado
+      quando você clica. Até lá, nada é enviado para lá.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERGUNTAS ============ -->
+<section class="faixa" id="perguntas">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="rotulo">Perguntas</p>
+      <h2 class="h2">Antes de marcar</h2>
+      <p>Dúvidas de logística. Qualquer coisa sobre o seu caso é respondida na
+      avaliação, olhando a sua boca — não por texto na internet.</p>
+    </div>
+
+    <div class="faq">
+
+      <details>
+        <summary>Como faço para agendar?</summary>
+        <div class="faq__corpo">
+          <p>Pelo WhatsApp, no (21) 99225-4443. O atendimento é de segunda a sexta,
+          das 8h às 19h, sempre com hora marcada.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>O que acontece na primeira consulta?</summary>
+        <div class="faq__corpo">
+          <p>É uma avaliação. A Dra. Angelica examina o caso, explica o que está
+          acontecendo e apresenta o plano de tratamento. Nenhum procedimento começa
+          antes dessa conversa.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Como chego até a sala 501?</summary>
+        <div class="faq__corpo">
+          <p>O endereço é Rua Conde de Bonfim, 422, na Tijuca. O consultório fica na
+          sala 501, no quinto andar. Como o atendimento é com hora marcada, confirme
+          o horário pelo WhatsApp antes de vir.</p>
+        </div>
+      </details>
+
+      <!-- ===================================================================
+           PRONTAS PARA PUBLICAR — falta a Dra. Angelica responder.
+           Descomente cada bloco assim que tiver a resposta dela.
+           Nenhuma delas envolve afirmação clínica nem preço.
+
+      <details>
+        <summary>Quanto tempo dura a primeira consulta?</summary>
+        <div class="faq__corpo"><p>RESPOSTA DELA</p></div>
+      </details>
+
+      <details>
+        <summary>Atende convênio ou só particular?</summary>
+        <div class="faq__corpo"><p>RESPOSTA DELA — dizer se atende particular ou
+        convênio é informação de atendimento. Não listar nomes de planos: aí vira
+        propaganda, e o CFO restringe.</p></div>
+      </details>
+
+      <details>
+        <summary>Preciso levar radiografia ou exames anteriores?</summary>
+        <div class="faq__corpo"><p>RESPOSTA DELA</p></div>
+      </details>
+
+      <details>
+        <summary>Tem estacionamento por perto?</summary>
+        <div class="faq__corpo"><p>RESPOSTA DELA</p></div>
+      </details>
+
+      <details>
+        <summary>Em quanto tempo respondem no WhatsApp?</summary>
+        <div class="faq__corpo"><p>RESPOSTA DELA</p></div>
+      </details>
+           =================================================================== -->
+
+    </div>
+
+    <div class="acoes">
+      <a class="btn btn-primario" href="https://wa.me/5521992254443?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Tirar dúvida pelo WhatsApp</a>
     </div>
   </div>
 </section>
@@ -849,13 +986,17 @@ a{color:inherit}
 </script>
 
 <!-- ============================================================
-     GA4 — COLE O SNIPPET AQUI QUANDO TIVER O ID (G-XXXXXXXXXX).
-     Enquanto nao houver, o rastreio de cliques abaixo roda em silencio:
-     ele so envia se gtag existir.
+     ANALYTICS — cole UMA linha aqui. Recomendado: Plausible ou Umami.
 
-     ATENCAO LGPD: consultorio e dado de saude. Antes de ligar o GA4,
-     a pagina precisa de aviso de privacidade e base legal para o
-     tratamento. Nao ligue sem isso.
+     Sao cookieless e nao coletam dado pessoal: dispensam banner de
+     consentimento, o que num consultorio (dado de saude) e muito mais
+     defensavel do que GA4. O rastreio abaixo funciona igual nos tres.
+
+     <script defer data-domain="SEU-DOMINIO" src="https://plausible.io/js/script.js"></script>
+
+     GA4 tambem funciona, mas ai volta a exigir banner de consentimento,
+     aviso de privacidade e base legal. Mesma coisa para o pixel da Meta,
+     se ela for rodar anuncio depois.
      ============================================================ -->
 
 <script>
@@ -870,12 +1011,18 @@ a{color:inherit}
   }
 
   // ---- conversao: clique em WhatsApp e telefone ----
-  // Agnostico de ferramenta: alimenta o dataLayer sempre, e dispara no
-  // gtag apenas se ele estiver carregado. Sem GA4, nao faz nada.
+  // Agnostico de ferramenta: alimenta o dataLayer sempre e entrega para
+  // quem estiver carregado. Sem nenhuma ferramenta, nao faz nada.
   window.dataLayer = window.dataLayer || [];
 
   function registrar(acao, origem){
     window.dataLayer.push({event:acao, origem:origem});
+    if (typeof window.plausible === 'function'){
+      window.plausible(acao, {props:{origem:origem}});
+    }
+    if (window.umami && typeof window.umami.track === 'function'){
+      window.umami.track(acao, {origem:origem});
+    }
     if (typeof window.gtag === 'function'){
       window.gtag('event', acao, {origem:origem, transport_type:'beacon'});
     }
@@ -898,6 +1045,23 @@ a{color:inherit}
     if (href.indexOf('wa.me') > -1)      registrar('clique_whatsapp', origemDe(a));
     else if (href.indexOf('tel:') === 0) registrar('clique_telefone', origemDe(a));
   }, {passive:true});
+
+  // ---- mapa sob demanda ----
+  var mapa = document.getElementById('mapa');
+  var abrir = mapa && mapa.querySelector('.mapa__abrir');
+  if (abrir){
+    abrir.addEventListener('click', function(){
+      var frame = document.createElement('iframe');
+      frame.src = mapa.dataset.src;
+      frame.title = 'Mapa: Rua Conde de Bonfim, 422 — Tijuca, Rio de Janeiro';
+      frame.loading = 'lazy';
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.setAttribute('allowfullscreen', '');
+      mapa.classList.add('carregado');
+      abrir.replaceWith(frame);
+      registrar('abriu_mapa', 'onde-fica');
+    });
+  }
 })();
 </script>
 

@@ -27,10 +27,21 @@ Rodar **antes** de tirar a prévia do ar e entregar como site definitivo.
 - [ ] **Título de instrutora no INERO** — conferir a forma correta de anunciar.
 - [ ] **Primeira consulta:** como funciona de fato? (hoje a página diz que o caso é
   avaliado antes de qualquer proposta e que cada etapa é explicada)
-- [ ] **Atende convênio ou só particular?** A página não diz — e não deve dizer
-  antes dela responder.
 - [ ] **Uso da foto do procedimento** na seção Cirurgia: paciente está coberto e não
   identificável, mas a decisão de exibir é dela.
+
+### As 5 perguntas do FAQ que faltam
+
+O bloco já está escrito e comentado no `index.html`, na seção **Perguntas**.
+É só descomentar e preencher. Nenhuma envolve afirmação clínica nem preço:
+
+1. **Quanto tempo dura a primeira consulta?**
+2. **Atende convênio ou só particular?** — dizer *se* atende é informação de
+   atendimento e pode entrar. **Não listar nomes de planos:** aí vira propaganda e
+   o CFO restringe. Plano específico, a secretária responde no WhatsApp.
+3. **Precisa levar radiografia ou exames anteriores?**
+4. **Tem estacionamento por perto?** (Conde de Bonfim, altura do 422)
+5. **Em quanto tempo respondem no WhatsApp?**
 
 ## 3. Conformidade CFO/CRO
 
@@ -44,10 +55,17 @@ Rodar **antes** de tirar a prévia do ar e entregar como site definitivo.
 
 ## 4. Rastreamento
 
-- [ ] **Criar propriedade GA4** e colar o snippet no ponto marcado no fim do
-  `index.html`. O disparo de eventos já está pronto e roda em silêncio sem o ID.
-- [ ] **LGPD antes de ligar:** consultório trata dado de saúde. Publicar aviso de
-  privacidade e definir base legal antes de ativar analytics e o mapa do Google.
+- [ ] **Contratar Plausible ou Umami** e colar a linha única no ponto marcado no fim
+  do `index.html`. São cookieless, não coletam dado pessoal e **dispensam banner de
+  consentimento** — num consultório, que trata dado de saúde, isso é bem mais
+  defensável que GA4. O disparo de eventos já está pronto e funciona nos dois.
+- [x] **Mapa sem pendência de LGPD:** carrega só no clique. A página não faz nenhuma
+  requisição ao Google antes disso, então não há cookie de terceiro a consentir.
+  Mesmo padrão serve para qualquer embed futuro.
+- [ ] **Se optar por GA4 ou pixel da Meta** (para anúncio), aí voltam a ser
+  obrigatórios: banner de consentimento, aviso de privacidade e base legal.
+- [ ] Conferir se os eventos chegam: `clique_whatsapp`, `clique_telefone` e
+  `abriu_mapa`, todos com o parâmetro `origem` indicando de qual bloco saiu.
 - [ ] Conferir no GA4 (DebugView) se `clique_whatsapp` e `clique_telefone` chegam,
   com o parâmetro `origem` indicando de qual bloco o clique saiu.
 
