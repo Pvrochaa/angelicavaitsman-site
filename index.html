@@ -16,14 +16,13 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Dra. Angelica Vaitsman — Periodontia e Implantes na Tijuca">
 <meta property="og:description" content="Periodontia, implantes e prótese na Tijuca, Rio de Janeiro. Agende pelo WhatsApp.">
-<!-- TROCAR PELO DOMÍNIO DEFINITIVO: og:url, og:image e canonical.
-     A imagem hoje é o retrato 400×400 — funciona como miniatura quadrada no
-     WhatsApp, mas o ideal é uma arte 1200×630 para o card ficar horizontal. -->
+<!-- TROCAR PELO DOMÍNIO DEFINITIVO: og:url, og:image e canonical -->
 <meta property="og:url" content="https://angelicavaitsman-site.vercel.app/">
-<meta property="og:image" content="https://angelicavaitsman-site.vercel.app/img/angelica-profissional.jpg">
-<!-- "summary" enquanto a imagem for quadrada (400×400). Trocar para
-     "summary_large_image" só quando existir a arte 1200×630. -->
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://angelicavaitsman-site.vercel.app/img/og-angelica-vaitsman.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dra. Angelica Vaitsman — Periodontia e Implantodontia, Tijuca, Rio de Janeiro">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://angelicavaitsman-site.vercel.app/">
 <meta name="theme-color" content="#0C4F49">
 
@@ -85,6 +84,11 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 p{margin:0}
 dl,dd{margin:0}
 img{max-width:100%;display:block}
+/* <picture> e inline por padrao: sem isso o height:100% do img nao resolve
+   e a foto para de preencher o contorno recortado */
+.hero__foto picture,.perfil__foto picture,.foto-quadro picture{
+  display:block;width:100%;height:100%;
+}
 a{color:inherit}
 
 :focus-visible{outline:2px solid var(--teal-vivo);outline-offset:3px;border-radius:2px}
@@ -517,7 +521,10 @@ a{color:inherit}
       </div>
 
       <div class="hero__foto">
-        <img src="img/angelica-retrato.jpg" alt="Dra. Angelica Vaitsman no consultório" loading="eager">
+        <picture>
+          <source srcset="img/angelica-retrato.webp" type="image/webp">
+          <img src="img/angelica-retrato.jpg" alt="Dra. Angelica Vaitsman no consultório" loading="eager" width="828" height="936">
+        </picture>
       </div>
 
     </div>
@@ -530,7 +537,10 @@ a{color:inherit}
 
     <div class="perfil">
       <div class="perfil__foto">
-        <img src="img/angelica-profissional.jpg" alt="Dra. Angelica Vaitsman" loading="lazy" width="400" height="400">
+        <picture>
+          <source srcset="img/angelica-profissional.webp" type="image/webp">
+          <img src="img/angelica-profissional.jpg" alt="Dra. Angelica Vaitsman" loading="lazy" width="400" height="400">
+        </picture>
       </div>
       <div>
         <p class="rotulo" style="margin-bottom:14px">Quem atende</p>
@@ -675,7 +685,10 @@ a{color:inherit}
 
     <div>
       <div class="foto-quadro">
-        <img src="img/angelica-atendimento.jpg" alt="Dra. Angelica Vaitsman durante um procedimento no consultório" loading="lazy">
+        <picture>
+          <source srcset="img/angelica-atendimento.webp" type="image/webp">
+          <img src="img/angelica-atendimento.jpg" alt="Dra. Angelica Vaitsman durante um procedimento no consultório" loading="lazy" width="828" height="819">
+        </picture>
       </div>
       <p class="legenda">Procedimento no consultório · Tijuca</p>
     </div>

@@ -66,8 +66,6 @@ O bloco já está escrito e comentado no `index.html`, na seção **Perguntas**.
   obrigatórios: banner de consentimento, aviso de privacidade e base legal.
 - [ ] Conferir se os eventos chegam: `clique_whatsapp`, `clique_telefone` e
   `abriu_mapa`, todos com o parâmetro `origem` indicando de qual bloco saiu.
-- [ ] Conferir no GA4 (DebugView) se `clique_whatsapp` e `clique_telefone` chegam,
-  com o parâmetro `origem` indicando de qual bloco o clique saiu.
 
 ## 5. Google Business Profile
 
@@ -80,14 +78,14 @@ O bloco já está escrito e comentado no `index.html`, na seção **Perguntas**.
 - [x] Lazy loading (hero em `eager`, as demais em `lazy`)
 - [x] Schema `Dentist` com endereço, telefone, horário, serviços e área atendida
 - [x] Schema `Person` com formação e credenciais
-- [ ] **Converter as 3 fotos para WebP.** Hoje somam 257 KB em JPEG — não é
-  gargalo, mas WebP economiza ~40%. Precisa de ferramenta que não existe nesta
-  máquina (sem Node, sem ImageMagick). Caminho manual: squoosh.app
+- [x] **WebP feito.** As 3 fotos passaram de 257 KB para 99 KB (-61%), servidas via
+  `<picture>` com o JPEG como reserva
 - [ ] Rodar PageSpeed Insights depois do domínio definitivo
 - [x] `og:url`, `og:image`, `canonical`, `twitter:card` e `theme-color` adicionados
 - [ ] **Trocar as 3 URLs absolutas** (`og:url`, `og:image`, `canonical`) pelo domínio final
-- [ ] Produzir arte `og:image` 1200×630 — hoje usa o retrato 400×400, que vira
-  miniatura quadrada no WhatsApp em vez de card horizontal
+- [x] **Arte `og:image` 1200×630 pronta** (`img/og-angelica-vaitsman.jpg`, 39 KB):
+  lockup negativo sobre teal, com CRO e o selo 5,0. `twitter:card` em
+  `summary_large_image`
 
 ## 7. Depois de publicar
 
