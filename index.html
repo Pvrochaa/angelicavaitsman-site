@@ -383,35 +383,8 @@ a{color:inherit}
   border:1px solid var(--linha);
   background:var(--branco);
 }
-.mapa iframe{width:100%;height:340px;border:0;display:block}
-@media (max-width:640px){.mapa iframe{height:260px}}
-
-.mapa__abrir{
-  width:100%;
-  min-height:200px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;
-  padding:36px 24px;
-  background:var(--mint);
-  border:0;
-  cursor:pointer;
-  font-family:var(--fonte);
-  transition:background-color .16s ease;
-}
-.mapa__abrir:hover{background:#CFE6E1}
-.mapa__titulo{
-  font-weight:600;font-size:1.0625rem;color:var(--teal);
-  font-variation-settings:"wdth" 112;
-}
-.mapa__end{font-size:.9375rem;color:var(--texto-2);text-align:center}
-.mapa__aviso{
-  padding:12px 20px;
-  font-size:.8125rem;
-  color:var(--texto-2);
-  text-align:center;
-  border-top:1px solid var(--linha);
-}
-.mapa.carregado .mapa__aviso{display:none}
+.mapa iframe{width:100%;height:360px;border:0;display:block}
+@media (max-width:640px){.mapa iframe{height:270px}}
 
 /* ---------------- rodapé ---------------- */
 
@@ -800,21 +773,17 @@ a{color:inherit}
 
     </div>
 
-    <!-- Click-to-load: o iframe do Google so e injetado no clique. Antes disso a
-         pagina nao carrega nada de terceiro, entao nao ha cookie a consentir e
-         nao precisa de banner. Padrao para qualquer embed futuro. -->
-    <div class="mapa" id="mapa"
-         data-src="https://www.google.com/maps?q=Rua%20Conde%20de%20Bonfim%2C%20422%2C%20Tijuca%2C%20Rio%20de%20Janeiro%2C%20RJ&output=embed">
-      <button type="button" class="mapa__abrir" aria-describedby="mapa-aviso">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0C4F49" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true">
-          <path d="M12 21 C12 21 5 14.5 5 10 A7 7 0 0 1 19 10 C19 14.5 12 21 12 21 Z"/>
-          <circle cx="12" cy="10" r="2.4"/>
-        </svg>
-        <span class="mapa__titulo">Ver o mapa</span>
-        <span class="mapa__end">Rua Conde de Bonfim, 422 — Sala 501, Tijuca</span>
-      </button>
-      <p class="mapa__aviso" id="mapa-aviso">O mapa vem do Google e só é carregado
-      quando você clica. Até lá, nada é enviado para lá.</p>
+    <!-- Mapa aberto por padrao, a pedido do cliente. O loading="lazy" adia a
+         requisicao ate a secao chegar perto da viewport, mas o embed do Google
+         grava cookie de terceiro sem acao do visitante — por isso a pagina
+         precisa de aviso de privacidade. Ver CHECKLIST-PUBLICACAO.md. -->
+    <div class="mapa">
+      <iframe
+        src="https://www.google.com/maps?q=Rua%20Conde%20de%20Bonfim%2C%20422%2C%20Tijuca%2C%20Rio%20de%20Janeiro%2C%20RJ&output=embed"
+        title="Mapa: Rua Conde de Bonfim, 422 — Sala 501, Tijuca, Rio de Janeiro"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -1061,22 +1030,13 @@ a{color:inherit}
     else if (href.indexOf('tel:') === 0) registrar('clique_telefone', origemDe(a));
   }, {passive:true});
 
-  // ---- mapa sob demanda ----
-  var mapa = document.getElementById('mapa');
-  var abrir = mapa && mapa.querySelector('.mapa__abrir');
-  if (abrir){
-    abrir.addEventListener('click', function(){
-      var frame = document.createElement('iframe');
-      frame.src = mapa.dataset.src;
-      frame.title = 'Mapa: Rua Conde de Bonfim, 422 — Tijuca, Rio de Janeiro';
-      frame.loading = 'lazy';
-      frame.referrerPolicy = 'no-referrer-when-downgrade';
-      frame.setAttribute('allowfullscreen', '');
-      mapa.classList.add('carregado');
-      abrir.replaceWith(frame);
-      registrar('abriu_mapa', 'onde-fica');
-    });
-  }
+  // ---- rota ----
+  // O mapa agora vem aberto, entao nao ha mais evento de abertura. O clique em
+  // "Como chegar" continua sendo o sinal de intencao de visita.
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest('a[href*="google.com/maps"]');
+    if (a) registrar('clique_rota', origemDe(a));
+  }, {passive:true});
 })();
 </script>
 

@@ -59,13 +59,18 @@ O bloco já está escrito e comentado no `index.html`, na seção **Perguntas**.
   do `index.html`. São cookieless, não coletam dado pessoal e **dispensam banner de
   consentimento** — num consultório, que trata dado de saúde, isso é bem mais
   defensável que GA4. O disparo de eventos já está pronto e funciona nos dois.
-- [x] **Mapa sem pendência de LGPD:** carrega só no clique. A página não faz nenhuma
-  requisição ao Google antes disso, então não há cookie de terceiro a consentir.
-  Mesmo padrão serve para qualquer embed futuro.
-- [ ] **Se optar por GA4 ou pixel da Meta** (para anúncio), aí voltam a ser
-  obrigatórios: banner de consentimento, aviso de privacidade e base legal.
+- [ ] **Publicar aviso de privacidade — virou obrigatório.** O mapa foi aberto por
+  padrão (decisão do cliente), então o embed do Google carrega sozinho e grava
+  cookie de terceiro sem ação do visitante. O `loading="lazy"` adia a requisição
+  até a seção chegar perto da tela, mas não a elimina.
+  A página precisa dizer, no mínimo: que usa mapa do Google, que dado é coletado
+  por ele e qual a base legal.
+  *Se quiser voltar a zerar essa pendência, o caminho é o click-to-load — estava
+  implementado e foi removido a pedido; dá para restaurar em minutos.*
+- [ ] **Se optar por GA4 ou pixel da Meta** (para anúncio), somam-se a isso banner
+  de consentimento e base legal específica.
 - [ ] Conferir se os eventos chegam: `clique_whatsapp`, `clique_telefone` e
-  `abriu_mapa`, todos com o parâmetro `origem` indicando de qual bloco saiu.
+  `clique_rota`, todos com o parâmetro `origem` indicando de qual bloco saiu.
 
 ## 5. Google Business Profile
 
